@@ -11,7 +11,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: run zip
         run: |
-         zip -r -9 download.zip ./
+         zip -r -9 d1.zip ./
+         zip -r -9 d2.zip d1.zip
+         zip -r -9 d3.zip d2.zip
+         zip -r -9 d4.zip d3.zip
+         zip -r -9 download.zip d4.zip
          
          if [ -n "$(git status --porcelain)" ]; then
            git config --global user.name "Github Actions"
